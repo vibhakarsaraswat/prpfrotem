@@ -2,7 +2,7 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // Since obj1 and obj2 are only used once,
         // so instead of passing the OBJECT and then calling the functions,
@@ -24,5 +24,16 @@ public class Main {
         });
         t2.start();
         try { Thread.sleep(20); } catch(Exception e) { e.printStackTrace(); }
+
+        // isAlive is method to check if your Thread is in Running state or Not
+        System.out.println(t1.isAlive());
+
+        // Join is a method which Waits for this thread to die.
+        t1.join();
+        t2.join();
+
+        System.out.println(t1.isAlive());
+
+        System.out.println("Bye Threads");
     }
 }
